@@ -2,7 +2,7 @@ on: [pull_request_target]
 jobs:
   myjob:
     runs-on: ubuntu-latest
-    step:
+    steps:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
