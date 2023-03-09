@@ -1,7 +1,7 @@
 on: [pull_request_target]
 jobs:
   myjob:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest2
     steps:
       - name: Dump GitHub context
         env:
