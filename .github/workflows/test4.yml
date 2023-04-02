@@ -1,4 +1,4 @@
-on: issues
+on: pull_request_target
 
 jobs:
   echo-chamber:
