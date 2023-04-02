@@ -5,5 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo '${{ github.event.issue.title }}'
-        echo '${{ github.event.issue.body }}'
+        echo '${{ github.event.issue.title }}' # not defined
+        echo '${{ github.event.issue.body }}' # not defined
+        echo '${{ github.event.pull_request.title }}'
+        echo '${{ github.event.pull_request.body }}'
+        echo '${{ github.event.pull_request.head.label }}'
+        echo '${{ github.event.pull_request.head.repo.default_branch }}'
+        echo '${{ github.event.pull_request.head.ref }}'
