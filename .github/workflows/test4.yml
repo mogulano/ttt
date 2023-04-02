@@ -1,14 +1,9 @@
-on: pull_request_target
+on: [pull_request_review, pull_request_review_comment]
 
 jobs:
   echo-chamber:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo '${{ github.event.issue.title }}' # not defined
-        echo '${{ github.event.issue.body }}' # not defined
-        echo '${{ github.event.pull_request.title }}'
-        echo '${{ github.event.pull_request.body }}'
-        echo '${{ github.event.pull_request.head.label }}'
-        echo '${{ github.event.pull_request.head.repo.default_branch }}'
-        echo '${{ github.event.pull_request.head.ref }}'
+        echo '${{ github.event.review.body }}'
+        echo '${{ github.event.review_comment.body }}' # not defined
