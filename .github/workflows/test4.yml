@@ -6,7 +6,8 @@ jobs:
     steps:
     - run: |
         echo '${{ github.event.review.body }}'
-        echo '${{ github.event.comment.body }}' # not defined
+        echo '${{ github.event.comment.body }}'
+        echo '${{ github.event.comment.user.name }}'
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
