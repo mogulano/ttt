@@ -7,3 +7,7 @@ jobs:
     - run: |
         echo '${{ github.event.review.body }}'
         echo '${{ github.event.review_comment.body }}' # not defined
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
