@@ -1,6 +1,8 @@
 on: [pull_request_target]
 jobs:
   myjob1:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
@@ -18,6 +20,8 @@ jobs:
       
   myjob2:
     needs: myjob1
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
