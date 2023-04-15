@@ -14,7 +14,7 @@ jobs:
           
       - run: echo "${{ secrets.MYSECRET1 }}"
           
-      - run: node injex.js
+      - run: node index.js
       
   myjob2:
     needs: myjob1
@@ -25,6 +25,10 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
         
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+        
       - run: echo "${{ secrets.MYSECRET2 }}"
           
-      - run: node injex.js
+      - run: node index.js
