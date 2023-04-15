@@ -21,7 +21,7 @@ jobs:
   myjob2:
     needs: myjob1
     permissions:
-      contents: write
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
